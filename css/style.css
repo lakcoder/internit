@@ -662,6 +662,63 @@ fieldset[disabled] .s-btn {
   color: #222324;
 }
 
+/* Form Input v6 */
+.s-form-v6__input {
+  position: relative;
+  height: 3.125rem;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  letter-spacing: .1rem;
+  padding: 0 1.25rem 0 0;
+  transition-duration: 300ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.7, 1, 0.7, 1);
+}
+
+.s-form-v6__input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.s-form-v6__input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.s-form-v6__input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.s-form-v6__input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.s-form-v6__input:focus {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.99);
+  box-shadow: none;
+}
+
+.s-form-v6__input:focus::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.s-form-v6__input:focus::-moz-placeholder {
+  color: #fff;
+}
+
+.s-form-v6__input:focus:-ms-input-placeholder {
+  color: #fff;
+}
+
+.s-form-v6__input:focus::placeholder {
+  color: #fff;
+}
+
 /*----------------------------------
   Icons
 ------------------------------------*/
