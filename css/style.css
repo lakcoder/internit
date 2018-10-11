@@ -669,11 +669,11 @@ fieldset[disabled] .s-btn {
   font-size: 0.8125rem;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.7);
-  border: none;
+  border: white;
   border-bottom: 0.0625rem solid rgba(255, 255, 255, 0.5);
   background: transparent;
   box-shadow: none;
-  border-radius: 0;
+  border-radius: 1;
   letter-spacing: .1rem;
   padding: 0 1.25rem 0 0;
   transition-duration: 300ms;
