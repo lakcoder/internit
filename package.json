@@ -1,0 +1,14 @@
+{
+  "name": "internit-master",
+  "version": "1.0.0",
+  "description": "Author: \t\tKeenThemes Website: \t\thttp://www.keenthemes.com/ Contact: \t\tsupport@keenthemes.com Follow: \t\thttp://twitter.com/keenthemes Like: \t\t\thttp://facebook.com/keenthemes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
