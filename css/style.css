@@ -1987,15 +1987,15 @@ fieldset[disabled] .s-btn {
 
 @media (max-width: 61.9em) {
   .s-header-v2__nav-link {
-    color: rgba(34, 35, 36, 0.7);
+    color: rgb(189, 32, 38, 0.7);
     line-height: 1.6;
     margin: 1.5rem 0;
   }
   .s-header-v2__nav-link:focus, .s-header-v2__nav-link:hover {
-    color: rgba(34, 35, 36, 0.7);
+    color: rgb(189, 32, 38, 0.7);
   }
   .s-header-v2__nav-link.-is-active {
-    color: #13b1cd;
+    color: #bd2026;
   }
 }
 
@@ -2072,16 +2072,16 @@ fieldset[disabled] .s-btn {
   }
   /* Nav Link */
   .s-header__shrink .s-header-v2__nav-link {
-    color: rgba(34, 35, 36, 0.7);
+    color: rgb(189, 32, 38, 0.7);
   }
   .s-header__shrink .s-header-v2__nav-link:hover {
-    color: #13b1cd;
+    color: #bd2026;
   }
   .s-header__shrink .s-header-v2__nav-link:focus {
-    color: rgba(34, 35, 36, 0.7);
+    color: rgb(189, 32, 38, 0.7);
   }
   .s-header__shrink .s-header-v2__nav-link.-is-active {
-    color: #13b1cd;
+    color: #bd2026;
   }
 }
 
@@ -2117,7 +2117,7 @@ fieldset[disabled] .s-btn {
   width: 1.875rem;
   height: 3rem;
   z-index: 9;
-  background: #13b1cd;
+  background: #bd2026;
   border-radius: 3.125rem;
   text-align: center;
   transition-duration: 300ms;
@@ -2424,13 +2424,13 @@ fieldset[disabled] .s-btn {
 }
 
 .s-swiper__pagination-v1--white .swiper-pagination-bullet-active {
-  background: #13b1cd;
+  background: #bd2026;
 }
 
 .s-swiper__pagination-v1--dark .swiper-pagination-bullet {
-  background: #b2b2b2;
+  background: #bd2026;
 }
 
 .s-swiper__pagination-v1--dark .swiper-pagination-bullet-active {
-  background: #13b1cd;
+  background: #bd2026;
 }
