@@ -1213,7 +1213,7 @@
 }
 
 .g-box-shadow__blueviolet-v1 {
-  box-shadow: 0 0 3.125rem 0 rgba(152, 119, 234, 0.3);
+  box-shadow: 0 0 3.125rem 0 rgb(0, 0, 0, 0.7);
 }
 
 .g-box-shadow__dark-lightest-v1 {
@@ -7212,7 +7212,7 @@
 ------------------------------------*/
 /* Text Colors */
 .g-color--primary {
-  color: #13b1cd !important;
+  color: #bd2026 !important;
 }
 
 .g-color--blueviolet {
