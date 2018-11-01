@@ -28,3 +28,13 @@ max-width: 350px;
     overflow: hidden;
     background-color: #f1f1f1;
 }
+
+.resize {
+    height:150px;
+  }
+
+@media (min-width: 768px) {
+  .resize {
+    height:280px;
+  }
+}
