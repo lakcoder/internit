@@ -10,22 +10,6 @@ app.get('/',(req,res) =>{
   res.render('index.hbs') ;
 });
 
-app.get('/about',(req,res) =>{
-  res.render('about.hbs') ;
-});
-
-app.get('/contacts',(req,res) =>{
-  res.render('contacts.hbs') ;
-});
-
-app.get('/events',(req,res) =>{
-  res.render('events.hbs') ;
-});
-
-app.get('/faq',(req,res) =>{
-  res.render('faq.hbs') ;
-});
-
 app.get('/login',(req,res) =>{
   res.render('login.hbs') ;
 });
@@ -33,6 +17,20 @@ app.get('/login',(req,res) =>{
 app.get('/register',(req,res) =>{
   res.render('register.hbs') ;
 });
+
+app.get('/registerother',(req,res) =>{
+  res.render('registerother.hbs') ;
+});
+
+
+app.get('/ques',(req,res) =>{
+  res.render('ques.hbs') ;
+});
+
+app.get('/dashboard',(req,res) =>{
+  res.render('dashboard.hbs') ;
+});
+
 
 app.listen(3000,() =>{
   console.log("server running on port 3000");
