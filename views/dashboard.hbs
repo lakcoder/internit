@@ -35,6 +35,7 @@
                             <div class="collapse navbar-collapse s-header-v2__navbar-collapse" id="nav-collapse">
                                 <ul class="s-header-v2__nav">
                                     <li class="s-header-v2__nav-item"><a href="/." class="s-header-v2__nav-link">Home</a></li>
+                                    <li class="s-header-v2__nav-item"><a href="/logout" class="s-header-v2__nav-link">Logout</a></li>
                                 </ul>
                             </div>
                             <!-- End Nav Menu -->
@@ -48,61 +49,91 @@
         <!--========== END HEADER ==========-->
         <!--========== PROMO BLOCK ==========-->
         <div style="background: url(static/img/background8-01.jpg) 60% 30% no-repeat fixed; background-size:cover !important">
-            <div class="g-container--sm g-padding-y-80--xs g-padding-y-125--xs">
+            <div class="g-padding-x-100--lg g-padding-x-60--md g-padding-x-40--sm g-padding-x-20--xs g-padding-y-60--lg g-padding-y-60--sm g-padding-y-60--md  g-padding-y-40--xs">
                 <div class="g-text-center--xs g-margin-b-40--xs">
-                    <h2 class="g-font-size-32--xs g-font-size-36--md" style="color:white">Your <span class="g-color--primary">Dashboard </span></h2>
+                    <h2 class="g-font-size-32--xs g-font-size-36--md" style="color:white">Team <span class="g-color--primary">Dashboard </span></h2>
                 </div>
-
-                <div>
-                    <span class="card-title">
-                        <h3 class="g-font-size-18--xs g-color--dark g-margin-b-5--xs"><span style="color:#bd2026">Round 1 Details</h3>
-                        <!--<p class="g-color--dark">Yash Gandhi</p>-->
-                        <!--<div class="g-color--primary" id="call-session" onclick="show_overlay('yash')">View</div>-->
-                    </span>
-                    <br>
-                    <p class="g-color--white-opacity">
-                        This round commences with filling a basic questionnaire. Our experts will judge you on basis of idea generation and will shortlist you for second round. Learning resources like videos, curated course material and presentations are shared with you below for reference.
-                    </p>
-                    <br>
-                    <p class="g-color--white-opacity">Fill the questionnaire <a class="g-color--primary" href="views/ques.html">here</a></p>
-                    <p class="g-color--white-opacity">Check out your resources <a class="g-color--primary" href="views/ques.html">here</a></p>
+                <!--<h4 class="g-font-size-22--xs g-font-size-26--md g-text-center--lg" style="color:white">Team Members</h4>-->
+                <div id="profile" class="g-text-center--lg g-text-center--md g-text-center--sm g-padding-y-20--xs g-padding-x-10--xs g-padding-x-80--lg g-padding-x-80--md">
+                    <div class="g-color--white-opacity g-font-size-22--lg">Team Name: <span class="g-font-weight--700">Apun hi baghwaan</span></div>
+                    <div class="g-color--white-opacity g-font-size-22--lg">Organisation: <span class="g-font-weight--700">Sagar Bansal</span></div>
+                    <div class="g-color--white-opacity g-font-size-22--lg">Member1: <span class="g-font-weight--700">Subham</span></div>
+                    <div class="g-color--white-opacity g-font-size-22--lg">Member2: <span class="g-font-weight--700">Rohit X</span></div>
+                    <div class="g-color--white-opacity g-font-size-22--lg">Member3: <span class="g-font-weight--700">XYZ</span></div>
                 </div>
-                <!-- Item -->
+            </div>
 
-                <div>
-                    <span class="card-title">
-                        <h3 class="g-font-size-18--xs g-color--dark g-margin-b-5--xs"><span style="color:#bd2026">Round 2 Details</h3>
-                        <!--<p class="g-color--dark">Yash Gandhi</p>-->
-                        <!--<div class="g-color--primary" id="call-session" onclick="show_overlay('yash')">View</div>-->
-                    </span>
-                    <br>
-                    <p class="g-color--white-opacity">
-                        Congratulations for qualifying for the second round! <br>In this round, you will create a B-plan which will map the company's future course of action. The format of your B-Plan structure is given below. After completing your B-Plan draft, upload it on your google drive share the link in the space provided below. <br> Similarly, make a video of your elevator pitch; upload it on your google drive and share the link below.
-                    </p>
-                    <br>
+            <div class="g-padding-x-100--lg g-padding-x-60--md g-padding-x-40--sm g-padding-x-20--xs g-padding-y-60--lg g-padding-y-60--sm g-padding-y-60--md  g-padding-y-40--xs" style="background: rgba(255,255,255,0.8)">
+
+            <div id="round1" class="g-padding-x-100--md g-padding-x-120--lg g-padding-x-40">
+                <span class="card-title">
+                    <h3 class="g-font-size-20--xs g-color--dark g-margin-b-5--xs"><span style="color:#bd2026">Welcome To Round 1</span></h3>
+                </span>
+                <br>
+                <p class=" g-font-size-16--xs g-color--dark g-padding-y-20--lg g-padding-y-20--md g-padding-y-20--sm">
+                    This round commences with filling a basic questionnaire. Our experts will judge you on basis of idea generation and will shortlist you for second round. Learning resources like videos, curated course material and presentations are shared with you below for reference.
+                </p>
+                <br>
+                <p class=" g-font-size-16--xs g-color--dark g-padding-y-20--lg g-padding-y-20--md g-padding-y-20--sm">
+                    <b>Deadline: 31 - Dec - 18</b>
+                </p>
+
+
+                <br>
+                <span class="g-display-block--xs g-display-inline-block--sm g-padding-x-5--xs g-margin-b-10--xs g-margin-b-0--sm">
+                    <a href="/ques" class="text-uppercase s-btn s-btn-icon--md s-btn--white-brd g-radius--50 g-padding-x-65--xs">Fill Questionnaire</a>
+                </span>
+                <span class="g-display-block--xs g-display-inline-block--sm g-padding-x-5--xs g-margin-b-10--xs g-margin-b-0--sm">
+                    <a href="/" class="text-uppercase s-btn s-btn-icon--md s-btn--white-brd g-radius--50 g-padding-x-65--xs">Resources</a>
+                </span>
+                <br>
+            </div>
+            <div id="round2" class="g-padding-x-100--md g-padding-x-120--lg g-padding-x-40 g-padding-y-20--lg g-padding-y-20--md g-padding-y-20--sm">
+                <span class="card-title">
+                    <h3 class="g-font-size-20--xs g-color--dark g-margin-b-5--xs"><span style="color:#bd2026">Welcome To Round 2</span></h3>
+                </span>
+                <br>
+                <p class=" g-font-size-16--xs g-color--dark g-padding-y-20--lg g-padding-y-20--md g-padding-y-20--sm">
+                    Congratulations for qualifying for the second round! <br>In this round, you will create a B-plan which will map the company's future course of action. The format of your B-Plan structure is given below. After completing your B-Plan draft, upload it on your google drive share the link in the space provided below. <br> Similarly, make a video of your elevator pitch; upload it on your google drive and share the link below.
+                </p>
+                <br>
+                <p class=" g-font-size-16--xs g-color--dark g-padding-y-20--lg g-padding-y-20--md g-padding-y-20--sm">
+                    <b>Deadline: 28 - Feb - 19</b>
+                </p>
+                <form class=" g-width-400--sm g-width-400--md">
                     <div class="g-margin-b-30--xs">
-                        <p class="g-color--white-opacity">Google drive link for your B-Plan draft:</p>
-                        <input type="text" class="form-control s-form-v3__input" placeholder="" value=""></input>
-                        <p class="g-color--white-opacity">Google drive link for your Elevator pitch:</p>
-                        <input type="text" class="form-control s-form-v3__input" placeholder="" value=""></input>
+                        <input type="text" class=" g-color--dark" placeholder="* Google Drive Link for B-Plan">
+                        <button type="submit" class=""><i class="ti-arrow-right"></i></button>
                     </div>
-                </div>
-                <div>
-                    <span class="card-title">
-                        <h3 class="g-font-size-18--xs g-color--dark g-margin-b-5--xs"><span style="color:#bd2026">Round 3 Details</h3>
+                </form>
+                <form class=" g-width-400--sm g-width-400--md">
+                    <div class="g-margin-b-30--xs">
+                        <input type="text" class="g-color--dark" placeholder="* Google Drive Link for Elevator Pitch">
+                        <button type="submit" class=""><i class="ti-arrow-right"></i></button>
+                    </div>
+                </form>
 
-                    </span>
-                    <br>
-                    <p class="g-color--white-opacity">
-                        Congratulations for qualifying the Round 2!
-                    </p>
-                    <br>
+                <br>
 
-                </div>
+                <br>
+            </div>
+            <div id="round3" class="g-padding-x-100--md g-padding-x-120--lg g-padding-x-40 g-padding-y-20--lg g-padding-y-20--md g-padding-y-20--sm">
+                <span class="card-title">
+                    <h3 class="g-font-size-18--xs g-color--dark g-margin-b-5--xs"><span style="color:#bd2026">Round 3 Details</span></h3>
 
-
+                </span>
+                <br>
+                <p class="g-color--white-body">
+                    Congratulations for qualifying the Round 2!
+                </p>
+                <p class="g-color--white-body">
+                    Comming Soon
+                </p>
             </div>
         </div>
+
+        </div>
+
         <!--========== END PROMO BLOCK ==========-->
 
         {{> footer}}
