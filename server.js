@@ -8,6 +8,7 @@ var app = express();
 var passport   = require('passport');
 var session    = require('express-session');
 var bodyParser = require('body-parser');
+var env = require('dotenv').load();
 
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,12 +31,29 @@ app.use(morgan('dev'));
 hbs.registerPartials(__dirname + '/views/includes');
 
 
+
+//Models
+var models = require("./app/models");
+
+//Sync Database
+models.sequelize.sync().then(function() {
+
+    console.log('Nice! Database looks fine')
+
+}).catch(function(err) {
+
+    console.log(err, "Something went wrong with the Database Update!")
+
+});
+
+
+
 app.get('/',function(req,res){
   res.render('index.hbs') ;
 });
 
 
-app.get('/login',function(req,res){
+app.get('/login1',function(req,res){
   res.render('login.hbs') ;
 });
 
