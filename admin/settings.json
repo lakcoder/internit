@@ -14,13 +14,14 @@
                     "text": true
                 },
                 "type": "int(11)",
+                "auto": true,
                 "allowNull": false,
                 "defaultValue": null,
                 "listview": {
                     "show": true
                 },
                 "editview": {
-                    "show": true
+                    "show": false
                 }
             },
             {
@@ -155,10 +156,10 @@
                 "name": "createdAt",
                 "verbose": "createdAt",
                 "control": {
-                    "text": true
+                    "datetime": true
                 },
                 "type": "datetime",
-                "allowNull": false,
+                "allowNull": true,
                 "defaultValue": null,
                 "listview": {
                     "show": true
@@ -171,10 +172,10 @@
                 "name": "updatedAt",
                 "verbose": "updatedAt",
                 "control": {
-                    "text": true
+                    "datetime": true
                 },
                 "type": "datetime",
-                "allowNull": false,
+                "allowNull": true,
                 "defaultValue": null,
                 "listview": {
                     "show": true
