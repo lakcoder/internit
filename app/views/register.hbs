@@ -24,7 +24,7 @@
                         <div class="s-header-v2__navbar-col s-header-v2__navbar-col-width--180">
                             <!-- Logo -->
                             <div class="s-header-v2__logo">
-                                <a href="index.html" class="s-header-v2__logo-link">
+                                <a href="/" class="s-header-v2__logo-link">
                                     <img class="s-header-v2__logo-img s-header-v2__logo-img--default" src="static/img/consologo.png" alt="StartUp Conclave" height="50" width="50">
                                     <img class="s-header-v2__logo-img s-header-v2__logo-img--shrink" src="static/img/consologo.png" alt="StartUp Conclave" height="50" width="50">
                                 </a>
@@ -96,10 +96,10 @@
                     <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white-opacity g-letter-spacing--2 g-margin-b-25--xs">Sign Up</p>
                     <h2 class="g-font-size-32--xs g-font-size-36--md g-color--white">Register Team</h2>
                 </div>
-                <form class="center-block g-width-500--sm g-width-550--md">
+                <form class="center-block g-width-500--sm g-width-550--md" method="POST">
                     <div class="permanent">
                         <div class="g-margin-b-30--xs">
-                            <select type="choice" class="form-control s-form-v3__input" placeholder="* College" name="college">
+                            <select type="choice" class="form-control s-form-v3__input" placeholder="* College" name="college" id="college">
                                 <option value="" selected disabled hidden>Choose College</option>
                               <option value="1" style="color:black">NIT Agartala</option>
                               <option value="2" style="color:black">NIT Allahabad</option>
@@ -135,14 +135,14 @@
                             </select>
                         </div>
                         <div class="g-margin-b-30--xs">
-                            <input type="text" class="form-control s-form-v3__input" placeholder="* Team Name" name="teamname">
+                            <input type="text" class="form-control s-form-v3__input" placeholder="* Team Name" name="teamname" id="team_name">
                         </div>
                         <div class="g-margin-b-30--xs">
-                            <input type="text" class="form-control s-form-v3__input" placeholder="* Contact Number" name="contactnumber">
+                            <input type="text" class="form-control s-form-v3__input" placeholder="* Team Contact" name="contactnumber" id="team_contact">
                         </div>
                         <div class="row g-margin-b-50--xs">
                             <div class="col-sm-6 g-margin-b-30--xs g-margin-b-0--md">
-                                <input type="email" class="form-control s-form-v3__input" placeholder="* Team Email" name="email">
+                                <input type="email" class="form-control s-form-v3__input" placeholder="* Team Email" name="email" id="team_email">
                             </div>
                             <!--<div class="col-sm-6">-->
                             <!--    <input type="text" class="form-control s-form-v3__input" placeholder="* Phone" >-->
@@ -160,7 +160,7 @@
                     </div>
                     <!--<div class="temp"></sdiv>-->
                     <div class="g-margin-b-30--xs">
-                            <input type="password" class="form-control s-form-v3__input" placeholder="* Password" name="password">
+                            <input type="password" class="form-control s-form-v3__input" placeholder="* Password" name="password" id="password">
                     </div>
 
 
