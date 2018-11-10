@@ -10,5 +10,8 @@ module.exports = function (app) {
     app.get('/ques', authController.question);
     app.post('/register',authController.registering);
     app.post('/registerother',authController.registering);
+    app.get('/verify',authController.verify);
+    app.get('/verify/otp',authController.verifyotp);
+    // app.get('/email',authController.sen);
 };
 

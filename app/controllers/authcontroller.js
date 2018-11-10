@@ -1,8 +1,65 @@
 var exports = module.exports = {};
 //importing models
 var models = require("../models");
+var nodemailer = require('nodemailer');
+var mailerhbs = require('nodemailer-express-handlebars');
 //load bcrypt
 var bCrypt = require('bcrypt-nodejs');
+var auth = require("../config/config.json")['auth'];
+
+
+
+
+var generateHash = function(password) {
+
+    return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+
+};
+
+var sendMail = function(to,subject, template, context){
+
+    var Config = {
+        host: 'sharedlinux.cloudhostdns.net',
+        port: 465,
+        secure: true, // use TLS
+        auth: {
+            user: auth.user,
+            pass: auth.pass
+        }
+    };
+
+
+    var transporter = nodemailer.createTransport(Config);
+
+    transporter.use('compile', mailerhbs({
+        viewPath: 'app/views/emails', //Path to email template folder
+        extName: '.hbs' //extendtion of email template
+    }));
+
+    var mailOptions = {
+      from: auth.user,
+      to: to,
+      subject: subject,
+      template: template,
+      context: context
+    };
+
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+
+};
+
+// exports.sen = function(req, res){
+//     sendMail("sagarbansal099@gmail.com", "Verify Your Email","verify_email", {"name":"Sagar", "otp":"1223"});
+// }
+
 
 exports.home = function(req, res) {
 
@@ -34,13 +91,11 @@ exports.question = function (req, res) {
     res.render('ques');
 };
 
-
-
-var generateHash = function(password) {
-
-    return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
-
+exports.verify = function (req, res) {
+    res.render('verify', {"email": req.session['email']});
 };
+
+
 
 exports.registering = function (req, res) {
 
@@ -138,6 +193,17 @@ exports.registering = function (req, res) {
 
                         }
 
+                        //Send email to the team and then redirects to the page.
+                        req.session['email'] = teamemail;
+                        req.session['name'] = teamname;
+                        var random = Math.floor(100000 + Math.random() * 900000);
+                        req.session['otp'] = random;
+                        sendMail(teamemail, "Verify Your Email","verify_email", {"name":teamname, "otp":random});
+                        res.redirect("/verify");
+
+
+
+
                     }).catch(function (reason) {
                         res.render('registerother', {"message":"Something Went Wrong: "+reason});
                     });
@@ -160,5 +226,43 @@ exports.registering = function (req, res) {
     else{
         res.render('registerother', {"message":"Kindly Fill the form correctly"});
     }
+
+};
+
+
+
+exports.verifyotp = function (req, res) {
+
+    //if requested for OTP again...
+    if(req.query.otp == 'resend'){
+        //Send email to the team and then redirects to the page.
+        var teamemail = req.session['email'];
+        var teamname = req.session['name'];
+        var random = Math.floor(100000 + Math.random() * 900000);
+        //updates the OTP session
+        req.session['otp'] = random;
+        if(teamemail && teamname){
+            sendMail(teamemail, "Verify Your Email","verify_email", {"name":teamname, "otp":random});
+            req.session['resend'] = "New OTP sent!";
+        }
+
+        req.session['resend'] = "Invalid Request!";
+        res.redirect("/verify");
+    }
+    else if(req.query.otp == req.session['otp']){
+        delete req.session.otp;
+        delete req.session.resend;
+        delete req.session.email;
+        delete req.session.name;
+        req.session['login'] = "Thank You for registering with us!. You can procced by Login below";
+        res.redirect("/login");
+
+    }
+    else{
+        req.session['resend'] = "Kindly Enter the valid OTP";
+        res.redirect("/verify");
+    }
+
+
 
 };

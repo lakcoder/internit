@@ -17,6 +17,13 @@ app.use(bodyParser.json());
 // For Passport
 app.use(session({ secret: 'startupconclave',resave: true, saveUninitialized:true})); // session secret
 
+
+app.use(function(req, res, next){
+        res.locals.session = req.session;
+        //console.log(res.locals.session);
+        next();
+});
+
 // app.use(passport.initialize());
 //
 // app.use(passport.session()); // persistent login sessions
