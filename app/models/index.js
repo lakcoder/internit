@@ -38,7 +38,7 @@ TeamMember.belongsTo(Member, {foreignKey:"memberfk"});
 
 
 //Sync Database
-sequelize.sync({force:false}).then(function() {
+sequelize.sync({force:true}).then(function() {
 
     console.log('Nice! Database looks fine')
 
@@ -53,4 +53,6 @@ sequelize.sync({force:false}).then(function() {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+
+db['team_member'] = TeamMember;
 module.exports = db;

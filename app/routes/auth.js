@@ -10,5 +10,5 @@ module.exports = function (app) {
     app.get('/ques', authController.question);
     app.post('/register',authController.registering);
     app.post('/registerother',authController.registering);
-}
+};
 

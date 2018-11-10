@@ -17,9 +17,9 @@ app.use(bodyParser.json());
 // For Passport
 app.use(session({ secret: 'startupconclave',resave: true, saveUninitialized:true})); // session secret
 
-app.use(passport.initialize());
-
-app.use(passport.session()); // persistent login sessions
+// app.use(passport.initialize());
+//
+// app.use(passport.session()); // persistent login sessions
 
 app.set('views', path.join(__dirname, 'app', 'views'));
 
@@ -52,6 +52,10 @@ var models = require("./app/models");
 //Server->Routes->controllers->views
 
 var authRoute = require('./app/routes/auth.js')(app);
+
+//load passport strategies
+
+// require('./app/passport/register.js')(passport, models.team, models.members);
 
 
 
