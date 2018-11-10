@@ -110,6 +110,10 @@ exports.registering = function (req, res) {
     if(!number){
         res.render('registerother', {"message":"Minimum two members required"});
     }
+
+    else if(password.length < 8){
+        res.render('registerother', {"message":"Minimum 8 digit password"});
+    }
     else if(teamname && organisation && teamemail && number && password){
 
         console.log(req.body);
@@ -250,12 +254,38 @@ exports.verifyotp = function (req, res) {
         res.redirect("/verify");
     }
     else if(req.query.otp == req.session['otp']){
-        delete req.session.otp;
-        delete req.session.resend;
-        delete req.session.email;
-        delete req.session.name;
-        req.session['login'] = "Thank You for registering with us!. You can procced by Login below";
-        res.redirect("/login");
+
+        var email = req.session.email;
+        var Team = models.team;
+        Team.findOne({
+                where: {
+                    teamEmail: email
+                }
+            }).then(function(team) {
+                if(team){
+                    var pass = team.password;
+
+                    var Login = models.login;
+
+                    Login.create({loginEmail: email, loginPassword:pass}).then(function (value) {
+                        delete req.session.otp;
+                        delete req.session.resend;
+                        delete req.session.email;
+                        delete req.session.name;
+                        req.session['login'] = "Thank You for registering with us!. You can procced by Login below";
+                        res.redirect("/login");
+                    }).catch(function (err) {
+                        req.session['resend'] = "Invalid Request!";
+                        res.redirect("/verify");
+                    });
+
+
+                }
+        }).catch(function(err){
+            req.session['resend'] = "Invalid Request!" + err;
+            res.redirect("/verify");
+        });
+
 
     }
     else{
