@@ -21,6 +21,8 @@ app.use(passport.initialize());
 
 app.use(passport.session()); // persistent login sessions
 
+app.set('views', path.join(__dirname, 'app', 'views'));
+
 //setting template engine
 app.set('view engine','hbs');
 app.use('/static', express.static(path.join(__dirname, 'public')));
@@ -28,51 +30,29 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 //NodeJS logger helps in debugging
 app.use(morgan('dev'));
 
-hbs.registerPartials(__dirname + '/views/includes');
+hbs.registerPartials(__dirname + '/app/views/includes');
 
 
 
 //Models
 var models = require("./app/models");
 
-//Sync Database
-models.sequelize.sync().then(function() {
-
-    console.log('Nice! Database looks fine')
-
-}).catch(function(err) {
-
-    console.log(err, "Something went wrong with the Database Update!")
-
-});
-
-
-
-app.get('/',function(req,res){
-  res.render('index.hbs') ;
-});
+// //Authenticate conection
+// models.sequelize.authenticate().then(function() {
+//
+//     console.log('Connected! Database looks fine')
+//
+// }).catch(function(err) {
+//
+//     console.log(err, "Something went wrong with the Database Update!")
+//
+// });
 
 
-app.get('/login1',function(req,res){
-  res.render('login.hbs') ;
-});
+//Server->Routes->controllers->views
 
-app.get('/register',function(req,res){
-  res.render('register.hbs') ;
-});
+var authRoute = require('./app/routes/auth.js')(app);
 
-app.get('/registerother',function(req,res){
-  res.render('registerother.hbs') ;
-});
-
-
-app.get('/ques',function(req,res){
-  res.render('ques.hbs') ;
-});
-
-app.get('/dashboard',function(req,res){
-  res.render('dashboard.hbs') ;
-});
 
 
 app.listen(3000,function(){

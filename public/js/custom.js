@@ -35,11 +35,14 @@ const my = '<div class="temp row g-margin-b-50--xs">'
 
 function stringvalue(i){
 	return '<div class="temp row g-margin-b-50--xs">'
-                            + '<div class="col-sm-6 g-margin-b-30--xs g-margin-b-0--md">'
-                                +'<input type="text" class="form-control s-form-v3__input" placeholder="* Member '+i+'">'
+                            + '<div class="col-sm-4 g-margin-b-30--xs g-margin-b-0--md">'
+                                +'<input type="text" class="form-control s-form-v3__input" name="membername'+i+'" placeholder="* Member '+i+'">'
                             +'</div>'
-                            +'<div class="col-sm-6">'
-                              +'  <input type="text" class="form-control s-form-v3__input" placeholder="* Phone '+i+'">'
+                            +'<div class="col-sm-4">'
+                              +'  <input type="text" class="form-control s-form-v3__input" name="memberemail'+i+'" placeholder="* Email '+i+'">'
+                            +'</div>'
+							+'<div class="col-sm-4">'
+                              +'  <input type="text" class="form-control s-form-v3__input" name="memberphone'+i+'" placeholder="* Phone '+i+'">'
                             +'</div>'
                         +'</div>';
 }
