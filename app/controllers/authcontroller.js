@@ -96,6 +96,141 @@ exports.verify = function (req, res) {
 };
 
 
+exports.registeringnit = function (req, res) {
+
+    var post = req.body;
+    var teamname = post.teamname;
+    var organisation = post.organisation;
+    var teamemail = post.teamemail;
+    var number = post.number;
+    var password = post.password;
+
+
+    if(!number){
+        res.render('register', {"message":"Minimum two members required"});
+    }
+
+    else if(password.length < 8){
+        res.render('register', {"message":"Minimum 8 digit password"});
+    }
+    else if(teamname && organisation && teamemail && number && password){
+
+        console.log(req.body);
+        var flag = 1;
+        for(var i=1; i<= number; i++){
+
+            var name = post['membername' + i];
+            var email = post['memberemail' + i];
+            var phone = post['memberphone' + i];
+            if(!name || !email || !phone){
+                flag = 0;
+                break;
+            }
+        }
+
+        if(flag==1){
+
+            var Team = models.team;
+            Team.findOne({
+                where: {
+                    teamEmail: teamemail
+                }
+            }).then(function(team) {
+
+                if (team) {
+
+                    res.render('register', {"message":"Team Email is already registerd!"});
+
+                }
+                else {
+
+                    var teampassword = generateHash(password);
+
+                    var teamdata = {
+
+                        teamName: teamname,
+                        teamEmail: teamemail,
+                        college: organisation,
+                        isPaid:0,
+                        isRone:0,
+                        isRtwo:0,
+                        isRthree:0,
+                        isNit:1,
+                        password:teampassword
+
+                    };
+
+                    // creating new team..
+                    Team.create(teamdata).then(function(newTeam, created) {
+
+                        // Creating Members
+                        for(var i=1; i<= number; i++){
+                            var name = post['membername' + i];
+                            var email = post['memberemail' + i];
+                            var phone = post['memberphone' + i];
+
+                            var memberdata ={
+                                memberName : name,
+                                memberEmail: email,
+                                memberPhone: phone
+                            };
+
+                            var Member = models.member;
+                            Member.create(memberdata).then(function(newMember, created){
+
+
+                                var TeamMember = models.team_member;
+
+                                TeamMember.create({teamfk:newTeam.teamId, memberfk: newMember.memberId}).catch(function(err){
+
+                                    res.render('register', {"message":err});
+
+                                });
+
+
+                            }).catch(function(err){
+                                res.render('register', {"message":"Can't Create :"+err});
+
+                            });
+
+
+                        }
+
+                        //Send email to the team and then redirects to the page.
+                        req.session['email'] = teamemail;
+                        req.session['name'] = teamname;
+                        var random = Math.floor(100000 + Math.random() * 900000);
+                        req.session['otp'] = random;
+                        sendMail(teamemail, "Verify Your Email","verify_email", {"name":teamname, "otp":random});
+                        res.redirect("/verify");
+
+
+
+
+                    }).catch(function (reason) {
+                        res.render('register', {"message":"Something Went Wrong: "+reason});
+                    });
+
+
+
+
+
+                }
+
+            });
+
+            // res.render('ques');
+        }
+        else{
+            res.render('register', {"message":"Member Details can't be empty"});
+        }
+
+    }
+    else{
+        res.render('register', {"message":"Kindly Fill the form correctly"});
+    }
+
+};
 
 exports.registering = function (req, res) {
 
@@ -109,6 +244,10 @@ exports.registering = function (req, res) {
 
     if(!number){
         res.render('registerother', {"message":"Minimum two members required"});
+    }
+
+    else if(password.length < 8){
+        res.render('registerother', {"message":"Minimum 8 digit password"});
     }
     else if(teamname && organisation && teamemail && number && password){
 
@@ -152,7 +291,7 @@ exports.registering = function (req, res) {
                         isRone:0,
                         isRtwo:0,
                         isRthree:0,
-                        isNit:req.session['nit'],
+                        isNit:0,
                         password:teampassword
 
                     };
@@ -202,14 +341,9 @@ exports.registering = function (req, res) {
                         res.redirect("/verify");
 
 
-
-
                     }).catch(function (reason) {
                         res.render('registerother', {"message":"Something Went Wrong: "+reason});
                     });
-
-
-
 
 
                 }
@@ -250,19 +384,43 @@ exports.verifyotp = function (req, res) {
         res.redirect("/verify");
     }
     else if(req.query.otp == req.session['otp']){
-        delete req.session.otp;
-        delete req.session.resend;
-        delete req.session.email;
-        delete req.session.name;
-        req.session['login'] = "Thank You for registering with us!. You can procced by Login below";
-        res.redirect("/login");
+
+        var email = req.session.email;
+        var Team = models.team;
+        Team.findOne({
+                where: {
+                    teamEmail: email
+                }
+            }).then(function(team) {
+                if(team){
+                    var pass = team.password;
+
+                    var Login = models.login;
+
+                    Login.create({loginEmail: email, loginPassword:pass}).then(function (value) {
+                        delete req.session.otp;
+                        delete req.session.resend;
+                        delete req.session.email;
+                        delete req.session.name;
+                        req.session['login'] = "Thank You for registering with us!. You can procced by Login below";
+                        res.redirect("/login");
+                    }).catch(function (err) {
+                        req.session['resend'] = "Invalid Request!";
+                        res.redirect("/verify");
+                    });
+
+
+                }
+        }).catch(function(err){
+            req.session['resend'] = "Invalid Request!" + err;
+            res.redirect("/verify");
+        });
+
 
     }
     else{
         req.session['resend'] = "Kindly Enter the valid OTP";
         res.redirect("/verify");
     }
-
-
 
 };
