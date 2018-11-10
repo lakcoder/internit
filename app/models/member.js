@@ -19,7 +19,7 @@ module.exports = function (sequelize, Sequelize) {
         memberPhone:{
             type: Sequelize.STRING,
             validate:{
-                is : ["^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*"]
+                not: ["[a-z]",'i']
             },
             notEmpty: true
 
