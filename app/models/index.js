@@ -9,8 +9,6 @@ var sequelize = new Sequelize(config.database, config.username, config.password,
 var db = {};
 
 
-
-
 fs
     .readdirSync(__dirname)
     .filter(function(file) {
@@ -26,6 +24,30 @@ Object.keys(db).forEach(function(modelName) {
         db[modelName].associate(db);
     }
 });
+
+
+//Make Relationships
+const Team = db['team'];
+const Member = db['member'];
+const TeamMember = sequelize.define('team_member',{});
+
+
+TeamMember.belongsTo(Team, {foreignKey:"teamfk"});
+TeamMember.belongsTo(Member, {foreignKey:"memberfk"});
+
+
+
+//Sync Database
+sequelize.sync({force:false}).then(function() {
+
+    console.log('Nice! Database looks fine')
+
+}).catch(function(err) {
+
+    console.log(err, "Something went wrong with the Database Update!")
+
+});
+
 
 
 db.sequelize = sequelize;

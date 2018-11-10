@@ -34,7 +34,7 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse s-header-v2__navbar-collapse" id="nav-collapse">
                                 <ul class="s-header-v2__nav">
-                                    <li class="s-header-v2__nav-item"><a href="./" class="s-header-v2__nav-link">Home</a></li>
+                                    <li class="s-header-v2__nav-item"><a href="" class="s-header-v2__nav-link">Home</a></li>
                                 </ul>
                             </div>
                             <!-- End Nav Menu -->
@@ -95,37 +95,27 @@
                     <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white-opacity g-letter-spacing--2 g-margin-b-25--xs">Sign Up</p>
                     <h2 class="g-font-size-32--xs g-font-size-36--md g-color--white">Register Team</h2>
                 </div>
-                <form class="center-block g-width-500--sm g-width-550--md">
+                <form class="center-block g-width-550--sm g-width-650--md g-width-700--lg" method="post" action="">
                     <div class="permanent">
-                        <!--<div class="g-margin-b-30--xs">
-                            <select type="choice" class="form-control s-form-v3__input" placeholder="* College" name="college">
-                                <option value="" selected disabled hidden>Choose College</option>
-                              <option value="volvo">NIT Nagpur</option>
-                              <option value="saab">NIT Jaipur</option>
-                              <option value="mercedes">NIT Raipur</option>
-                              <option value="audi">NIT Surat</option></select>
-                        </div>-->
-                        <div class="g-margin-b-30--xs">
-                            <input type="text" class="form-control s-form-v3__input" placeholder="* Ogranisation" name="organisation">
-                        </div>
                         <div class="g-margin-b-30--xs">
                             <input type="text" class="form-control s-form-v3__input" placeholder="* Team Name" name="teamname">
                         </div>
+                        <div class="g-margin-b-30--xs">
+                            <input type="text" class="form-control s-form-v3__input" placeholder="* Ogranisation" name="organisation">
+                        </div>
                         <div class="row g-margin-b-50--xs">
                             <div class="col-sm-6 g-margin-b-30--xs g-margin-b-0--md">
-                                <input type="email" class="form-control s-form-v3__input" placeholder="* Team Email" name="email">
+                                <input type="email" class="form-control s-form-v3__input" placeholder="* Team Email" name="teamemail">
                             </div>
-                            <!--<div class="col-sm-6">-->
-                            <!--    <input type="text" class="form-control s-form-v3__input" placeholder="* Phone" >-->
-                            <!--</div>-->
+
                             <div class="col-sm-6 g-margin-b-30--xs g-margin-b-0--md">
-                                <select type="number" pattern="[0-9]{11}" class="form-control s-form-v3__input" placeholder="* No. of members" id="members">
+                                <select type="number" pattern="[0-9]{11}" class="form-control s-form-v3__input" name="number" placeholder="* No. of members" id="members">
                                     <option value="" selected disabled hidden>Number of members</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
-                                <select>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -135,7 +125,7 @@
                     </div>
 
                     <div class="g-text-center--xs">
-                        <button type="submit" class="text-uppercase s-btn s-btn--md s-btn--white-brd g-radius--50 g-padding-x-70--xs g-margin-b-20--xs">Submit</button>
+                        <button type="submit" class="text-uppercase s-btn s-btn--md s-btn--white-brd g-radius--50 g-padding-x-70--xs g-margin-b-20--xs">Register</button>
                     </div>
                 </form>
             </div>
