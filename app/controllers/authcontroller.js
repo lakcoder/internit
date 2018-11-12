@@ -79,13 +79,14 @@ exports.registerother = function(req, res){
     res.render('registerother');
 };
 
-exports.login = function(req, res){
-    res.render('login');
-};
-
 exports.dashboard = function(req,res){
     res.render('dashboard');
 };
+
+exports.login = function(req,res){
+    res.render('login');
+};
+
 
 exports.question = function (req, res) {
     res.render('ques');
@@ -424,3 +425,30 @@ exports.verifyotp = function (req, res) {
     }
 
 };
+
+
+exports.logging = function(req,res){
+
+  var login = models.login;
+
+  let {teamemail, password} = req.body;
+    login.findOne({teamemail: teamemail}, 'teamemail password', (err, login) => {
+    	if (!err) {
+        	let passwordCheck = bcrypt.compareSync(password, login.password);
+        	if (passwordCheck){
+                req.session.login = {
+                  email: login.teamemail,
+                  teamname: login.teamname
+                };
+                res.status(200).send('You are logged in!');
+          }
+          else {
+            	res.status(401).send('incorrect password');
+          }
+      }
+
+      else {
+        	res.status(401).send('invalid login credentials')
+        }
+    })
+}

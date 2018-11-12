@@ -12,6 +12,6 @@ module.exports = function (app) {
     app.post('/registerother',authController.registering);
     app.get('/verify',authController.verify);
     app.get('/verify/otp',authController.verifyotp);
+    app.post('/login',authController.logging);
     // app.get('/email',authController.sen);
 };
-
