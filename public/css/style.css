@@ -1992,10 +1992,10 @@ fieldset[disabled] .s-btn {
     margin: 1.5rem 0;
   }
   .s-header-v2__nav-link:focus, .s-header-v2__nav-link:hover {
-    color: rgb(189, 32, 38, 0.7);
+    color: #c21807;
   }
   .s-header-v2__nav-link.-is-active {
-    color: #bd2026;
+    color: #c21807;
   }
 }
 
@@ -2072,16 +2072,16 @@ fieldset[disabled] .s-btn {
   }
   /* Nav Link */
   .s-header__shrink .s-header-v2__nav-link {
-    color: rgb(189, 32, 38, 0.7);
+    color: #c21807;
   }
   .s-header__shrink .s-header-v2__nav-link:hover {
-    color: #bd2026;
+    color: #c21807;
   }
   .s-header__shrink .s-header-v2__nav-link:focus {
-    color: rgb(189, 32, 38, 0.7);
+    color: #c21807;
   }
   .s-header__shrink .s-header-v2__nav-link.-is-active {
-    color: #bd2026;
+    color: #c21807;
   }
 }
 
@@ -2434,5 +2434,3 @@ fieldset[disabled] .s-btn {
 .s-swiper__pagination-v1--dark .swiper-pagination-bullet-active {
   background: #bd2026;
 }
-
-
