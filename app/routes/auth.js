@@ -8,7 +8,10 @@ module.exports = function (app) {
     app.get('/login',authController.login);
     app.get('/dashboard', authController.dashboard);
     app.get('/ques', authController.question);
-    app.post('/register',authController.registering);
+    app.post('/register',authController.registeringnit);
     app.post('/registerother',authController.registering);
+    app.get('/verify',authController.verify);
+    app.get('/verify/otp',authController.verifyotp);
+    // app.get('/email',authController.sen);
 };
 

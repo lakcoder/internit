@@ -95,43 +95,47 @@
                 <div class="g-text-center--xs g-margin-b-60--xs">
                     <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--white-opacity g-letter-spacing--2 g-margin-b-25--xs">Sign Up</p>
                     <h2 class="g-font-size-32--xs g-font-size-36--md g-color--white">Register Team</h2>
+                    {{# if message}}
+                    <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--red g-letter-spacing--2 g-margin-b-25--xs">{{message}}</p>
+                    {{/if}}
                 </div>
-                <form class="center-block g-width-500--sm g-width-550--md">
+                <form class="center-block g-width-500--sm g-width-550--md" method="post" action="">
                     <div class="permanent">
                         <div class="g-margin-b-30--xs">
                             <select type="choice" class="form-control s-form-v3__input" placeholder="* College" name="college" id="college">
+
                                 <option value="" selected disabled hidden>Choose College</option>
-                              <option value="1" style="color:black">NIT Agartala</option>
-                              <option value="2" style="color:black">NIT Allahabad</option>
-                              <option value="3" style="color:black">NIT Arunachal Pradesh</option>
-                              <option value="4" style="color:black">NIT Bhopal</option>
-                              <option value="5" style="color:black">NIT Calicut</option>
-                              <option value="6" style="color:black">NIT Delhi</option>
-                              <option value="7" style="color:black">NIT Durgapur</option>
-                              <option value="8" style="color:black">NIT Goa</option>
-                              <option value="9" style="color:black">NIT Hamirpur</option>
-                              <option value="10" style="color:black">NIT Jaipur</option>
-                              <option value="11" style="color:black">NIT Jalandhar</option>
-                              <option value="12" style="color:black">NIT Jamshedpur</option>
-                              <option value="13" style="color:black">NIT Karaikal</option>
-                              <option value="14" style="color:black">NIT Kurukshetra</option>
-                              <option value="15" style="color:black">NIT Manipur</option>
-                              <option value="16" style="color:black">NIT Meghalaya</option>
-                              <option value="17" style="color:black">NIT Mizoram</option>
-                              <option value="18" style="color:black">NIT Nagaland</option>
-                              <option value="19" style="color:black">NIT Nagpur</option>
-                              <option value="20" style="color:black">NIT Patna</option>
-                              <option value="21" style="color:black">NIT Raipur</option>
-                              <option value="22" style="color:black">NIT Rourkela</option>
-                              <option value="23" style="color:black">NIT Sikkim</option>
-                              <option value="24" style="color:black">NIT Silchar</option>
-                              <option value="25" style="color:black">NIT Srinagar</option>
-                              <option value="26" style="color:black">NIT Surat</option>
-                              <option value="27" style="color:black">NIT Surathkal</option>
-                              <option value="28" style="color:black">NIT Tadepalligudem</option>
-                              <option value="29" style="color:black">NIT Trichy</option>
-                              <option value="30" style="color:black">NIT Uttarakhand</option>
-                              <option value="31" style="color:black">NIT Warangal</option>
+                              <option value="NIT Agartala" style="color:black">NIT Agartala</option>
+                              <option value="NIT Allahabad" style="color:black">NIT Allahabad</option>
+                              <option value="NIT Arunachal Pradesh" style="color:black">NIT Arunachal Pradesh</option>
+                              <option value="NIT Bhopal" style="color:black">NIT Bhopal</option>
+                              <option value="NIT Calicut" style="color:black">NIT Calicut</option>
+                              <option value="NIT Delhi" style="color:black">NIT Delhi</option>
+                              <option value="NIT Durgapur" style="color:black">NIT Durgapur</option>
+                              <option value="NIT Goa" style="color:black">NIT Goa</option>
+                              <option value="NIT Hamirpur" style="color:black">NIT Hamirpur</option>
+                              <option value="NIT Jaipur" style="color:black">NIT Jaipur</option>
+                              <option value="NIT Jalandhar" style="color:black">NIT Jalandhar</option>
+                              <option value="NIT Jamshedpur" style="color:black">NIT Jamshedpur</option>
+                              <option value="NIT Karaikal" style="color:black">NIT Karaikal</option>
+                              <option value="NIT Kurukshetra" style="color:black">NIT Kurukshetra</option>
+                              <option value="NIT Manipur" style="color:black">NIT Manipur</option>
+                              <option value="NIT Meghalaya" style="color:black">NIT Meghalaya</option>
+                              <option value="NIT Mizoram" style="color:black">NIT Mizoram</option>
+                              <option value="NIT Nagaland" style="color:black">NIT Nagaland</option>
+                              <option value="NIT Nagpur" style="color:black">NIT Nagpur</option>
+                              <option value="NIT Patna" style="color:black">NIT Patna</option>
+                              <option value="NIT Raipur" style="color:black">NIT Raipur</option>
+                              <option value="NIT Rourkela" style="color:black">NIT Rourkela</option>
+                              <option value="NIT Sikkim" style="color:black">NIT Sikkim</option>
+                              <option value="NIT Silchar" style="color:black">NIT Silchar</option>
+                              <option value="NIT Srinagar" style="color:black">NIT Srinagar</option>
+                              <option value="NIT Surat" style="color:black">NIT Surat</option>
+                              <option value="NIT Surathkal" style="color:black">NIT Surathkal</option>
+                              <option value="NIT Tadepalligudem" style="color:black">NIT Tadepalligudem</option>
+                              <option value="NIT Trichy" style="color:black">NIT Trichy</option>
+                              <option value="NIT Uttarakhand" style="color:black">NIT Uttarakhand</option>
+                              <option value="NIT Warangal" style="color:black">NIT Warangal</option>
                             </select>
                         </div>
                         <div class="g-margin-b-30--xs">
@@ -148,7 +152,7 @@
                             <!--    <input type="text" class="form-control s-form-v3__input" placeholder="* Phone" >-->
                             <!--</div>-->
                             <div class="col-sm-6 g-margin-b-30--xs g-margin-b-0--md">
-                                <select type="number" pattern="[0-9]{11}" class="form-control s-form-v3__input" placeholder="* No. of members" id="members" >
+                                <select type="number" pattern="[0-9]{11}" class="form-control s-form-v3__input" name="number" placeholder="* No. of members" id="members" >
                                     <option value="" selected disabled hidden >Number of members</option>
                                     <option value="2" style="color:black">2</option>
                                     <option value="3" style="color:black">3</option>
