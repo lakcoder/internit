@@ -79,13 +79,14 @@ exports.registerother = function(req, res){
     res.render('registerother');
 };
 
-exports.login = function(req, res){
-    res.render('login');
-};
-
 exports.dashboard = function(req,res){
     res.render('dashboard');
 };
+
+exports.login = function(req,res){
+    res.render('login');
+};
+
 
 exports.question = function (req, res) {
     res.render('ques');
@@ -423,4 +424,43 @@ exports.verifyotp = function (req, res) {
         res.redirect("/verify");
     }
 
+};
+
+
+exports.logging = function(req,res){
+
+
+    var Login = models.login;
+    console.log(req.body);
+    var email = req.body.email;
+    var pass = req.body.pass;
+
+    Login.findOne({
+
+        where : {
+            loginEmail: email
+        }
+
+    }).then(function (login) {
+
+        console.log(login);
+        var passwordCheck =  bCrypt.compareSync(pass, login.loginPassword);
+
+        if (passwordCheck && login){
+
+            req.session.login = {
+              email: login.teamemail,
+              teamname: login.teamname
+            };
+            res.status(200).send('You are logged in!');
+        }
+        else {
+            res.status(401).send('incorrect password');
+        }
+    }).catch(function(err){
+
+        res.status(401).send('Invalid login credentials');
+        console.log(err);
+        console.log("HOO");
+    });
 };
