@@ -429,26 +429,38 @@ exports.verifyotp = function (req, res) {
 
 exports.logging = function(req,res){
 
-  var login = models.login;
 
-  let {teamemail, password} = req.body;
-    login.findOne({teamemail: teamemail}, 'teamemail password', (err, login) => {
-    	if (!err) {
-        	let passwordCheck = bcrypt.compareSync(password, login.password);
-        	if (passwordCheck){
-                req.session.login = {
-                  email: login.teamemail,
-                  teamname: login.teamname
-                };
-                res.status(200).send('You are logged in!');
-          }
-          else {
-            	res.status(401).send('incorrect password');
-          }
-      }
+    var Login = models.login;
+    console.log(req.body);
+    var email = req.body.email;
+    var pass = req.body.pass;
 
-      else {
-        	res.status(401).send('invalid login credentials')
+    Login.findOne({
+
+        where : {
+            loginEmail: email
         }
-    })
-}
+
+    }).then(function (login) {
+
+        console.log(login);
+        var passwordCheck =  bCrypt.compareSync(pass, login.loginPassword);
+
+        if (passwordCheck && login){
+
+            req.session.login = {
+              email: login.teamemail,
+              teamname: login.teamname
+            };
+            res.status(200).send('You are logged in!');
+        }
+        else {
+            res.status(401).send('incorrect password');
+        }
+    }).catch(function(err){
+
+        res.status(401).send('Invalid login credentials');
+        console.log(err);
+        console.log("HOO");
+    });
+};
