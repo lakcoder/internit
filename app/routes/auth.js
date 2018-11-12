@@ -4,6 +4,8 @@ module.exports = function (app) {
 
     app.get('/', authController.home);
     app.get('/register',authController.register);
+    app.get('/forgot',authController.forgot);
+    app.get('/reg_sel',authController.reg_sel);
     app.get('/registerother',authController.registerother);
     app.get('/login',authController.login);
     app.get('/dashboard', authController.dashboard);
@@ -14,4 +16,3 @@ module.exports = function (app) {
     app.get('/verify/otp',authController.verifyotp);
     // app.get('/email',authController.sen);
 };
-

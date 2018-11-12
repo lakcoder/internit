@@ -87,6 +87,14 @@ exports.dashboard = function(req,res){
     res.render('dashboard');
 };
 
+exports.forgot = function(req,res){
+    res.render('forgot');
+};
+
+exports.reg_sel = function(req,res){
+    res.render('reg_sel');
+};
+
 exports.question = function (req, res) {
     res.render('ques');
 };
