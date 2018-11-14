@@ -17,11 +17,11 @@
 
     "production": {
 
-        "username": "",
+        "username": "sc",
 
-        "password": null,
+        "password": "Sc@12345",
 
-        "database": "",
+        "database": "startupconclave",
 
         "host": "127.0.0.1",
 
