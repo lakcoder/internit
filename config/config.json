@@ -1,0 +1,32 @@
+{
+
+    "development": {
+
+        "username": "sc",
+
+        "password": "sc@123",
+
+        "database": "startupconclave",
+
+        "host": "127.0.0.1",
+
+        "dialect": "mysql",
+        "force": true
+
+    },
+
+    "production": {
+
+        "username": "",
+
+        "password": null,
+
+        "database": "",
+
+        "host": "127.0.0.1",
+
+        "dialect": "mysql",
+        "force": false
+
+    }
+}

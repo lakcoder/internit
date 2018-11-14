@@ -1,6 +1,5 @@
 node_modules
 *.xml
 .env
-config/config.json
 admin/config.json
 .idea
